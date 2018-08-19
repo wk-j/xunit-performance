@@ -1,0 +1,5 @@
+<Project>
+    <Target Name="Perf" DependsOnTargets="Build">
+        <Exec Command="dotnet $(TargetPath) $(StartArguments) --perf:outputdir output" WorkingDirectory="$(OutDir)" Condition=" '$(StartWorkingDirectory)' == '' " />
+    </Target>
+</Project>
