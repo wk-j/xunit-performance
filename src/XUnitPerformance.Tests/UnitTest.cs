@@ -5,8 +5,7 @@ using System.Linq;
 
 namespace XUnitPerformance.Tests {
     public class UnitTest {
-        [Benchmark(InnerIterationCount = 20)]
-        [MeasureGCCounts]
+        [Benchmark]
         public void Test1() {
             foreach (var iteration in Benchmark.Iterations) {
                 using (iteration.StartMeasurement()) {
@@ -15,8 +14,7 @@ namespace XUnitPerformance.Tests {
             }
         }
 
-        [Benchmark(InnerIterationCount = 20)]
-        [MeasureGCCounts]
+        [Benchmark]
         public void Test2() {
             foreach (var iteration in Benchmark.Iterations) {
                 using (iteration.StartMeasurement()) {
@@ -25,7 +23,7 @@ namespace XUnitPerformance.Tests {
             }
         }
 
-        [Benchmark(InnerIterationCount = 10000)]
+        [Benchmark]
         public void TestBenchmark() {
             foreach (BenchmarkIteration iter in Benchmark.Iterations) {
                 using (iter.StartMeasurement()) {
